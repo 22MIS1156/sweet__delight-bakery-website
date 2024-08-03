@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Delights - Order</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            padding: 10px;
+        }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        header nav ul li {
+            margin: 0 15px;
+        }
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .order {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .order table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .order td {
+            padding: 10px;
+        }
+        .order input, .order select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+        }
+        .order input[type="submit"] {
+            background-color: #333;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .order input[type="submit"]:hover {
+            background-color: #444;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" style="background-color: #333;">Home</a></li>
+                <li><a href="product.html" style="background-color: #333;">Products</a></li>
+                <li><a href="contact.html" style="background-color: #333;">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="order">
+            <h2>Place Your Order</h2>
+            <form>
+                <table>
+                    <tr>
+                        <td><label for="product">Product:</label></td>
+                        <td><input type="text" id="product" name="product" value="<?php echo $_GET['product']; ?>" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="name">Name:</label></td>
+                        <td><input type="text" id="name" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="address">Address:</label></td>
+                        <td><input type="text" id="address" name="address"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="payment">Payment Method:</label></td>
+                        <td><select id="payment" name="payment">
+                            <option value="cash">Cash</option>
+                            <option value="card">Card</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Place Order"></td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Sweet Delights</p>
+    </footer>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const product = document.querySelector('#product').value;
+            const name = document.querySelector('#name').value;
+            const address = document.querySelector('#address').value;
+            const payment = document.querySelector('#payment').value;
+            alert(`Order Booked! Your ${product} will be delivered to ${address} soon.`);
+        });
+    </script>
+</body>
+</html>
